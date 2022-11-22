@@ -1,0 +1,206 @@
+header{
+    font: serif;
+    font-size:1.0 rem;
+    color:rgb(215, 181, 181);
+}
+
+body {
+    font-size: 16px;
+    font-family: "Open Sans", "Arial", sans-serif;
+    background-image: url("../staff/batman.gif");
+    background-size:cover;
+    background-attachment: fixed;
+    overflow-x: hidden;
+
+}
+
+div{
+    border-radius: 10px;
+}
+
+.background{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    
+   
+}
+
+.inputFields{
+    position: relative;
+    height: 500px;
+    width: 1450px;
+    margin-top: 80px;
+    margin-left: 20px;
+    padding: 20px 20px 20px 20px;
+    background: rgba(107, 139, 219, 0.75);
+    border: 1px solid #270149;
+    
+}
+
+.inputFields2{
+    position: relative;
+    height: 470px;
+    width: 530px;
+    margin-top: 80px;
+    margin-left: 480px;
+    padding: 10px 10px 10px 10px;
+    background: rgba(107, 139, 219, 0.75);
+    border: 1px solid #270149;
+
+}
+
+.task{
+    position: relative;
+    margin-top: 30px;
+    margin-left: 5px;
+    margin-right: 500px;
+    width:440px;
+    height: 60px;
+    background: rgba(177, 215, 239, 0.85);
+    border: 1px solid #270149;
+}
+
+.headerText{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+
+.xRect{
+    position: relative;
+    margin-top: 20px;
+    margin-left: 5px;
+    width: 400px;
+    height: 20px;
+    padding: 20px;
+    background: rgba(177, 215, 239, 0.85);
+    border: 1px solid #270149;
+}
+
+.yRect{
+    position: relative;
+    margin-top: 20px;
+    margin-left: 5px;
+    width: 400px;
+    height: 20px;
+    padding: 20px;
+    background: rgba(177, 215, 239, 0.85);
+    border: 1px solid #270149;
+}
+
+.rRect{
+    position: relative;
+    margin-top: 20px;
+    margin-left: 5px;
+    width: 400px;
+    height: 20px;
+    padding: 20px;
+    background: rgba(177, 215, 239, 0.85);
+    border: 1px solid #270149;
+}
+
+.xVal{
+    width:350px; 
+}
+
+.yVal{
+    width:350px; 
+}
+
+.rVal{
+    width:350px; 
+}
+.imageRect{
+    position: relative;
+    margin-top: -450px;
+    margin-left: 1030px;
+    width: 420px;
+    height: 420px;
+    background: rgba(177, 215, 239, 0.85);
+    border: 1px solid #270149;
+}
+
+
+.graph{
+    margin-top: 10px;
+    margin-left: 10px;
+    background: rgb(161, 72, 186);
+    border-radius: 3px;
+    cursor:crosshair;
+}
+
+.ckeckBtn{
+    position: relative;
+    margin-top: 20px;
+    margin-left: 1125px;
+    width: 85px;
+    height: 23px;
+    padding: 5px;
+    background: rgba(177, 215, 239, 0.85);
+    border: 1px solid #270149;
+}
+
+.ckeckBtn2{
+    position: relative;
+    margin-top: -36px;
+    margin-left: 1263px;
+    width: 76px;
+    height: 23px;
+    padding: 5px;
+    background: rgba(177, 215, 239, 0.85);
+    border: 1px solid #270149;
+
+}
+
+.container{
+    position: relative;
+    margin-top: -320px;
+    margin-left: 480px;
+    width: 518px;
+    height: 450px;
+    overflow: scroll;
+    background-color: rgba(112, 104, 171, 0.8);
+    
+}
+
+.container2{
+    margin-top: 5px;
+    margin-left: 5px;
+    width: 518px;
+    height: 450px;
+    overflow: scroll;
+    background-color: rgba(112, 104, 171, 0.8);
+
+}
+
+#result-table {
+    width: 500px;
+    text-align: center;
+    background-color: aliceblue;
+}
+#result-table tr {
+    height: 2em;
+}
+#result-table th {
+background-color: thistle;
+    height: 2em;
+}
+
+
+#result-table td {
+    border-right: 1px solid plum;
+    border-bottom: 1px solid plum;
+}
+
+
+#gr{
+    width: 180px;
+    height: 180px;
+}
+
+.link-back{
+    margin-left: 480px;
+}
