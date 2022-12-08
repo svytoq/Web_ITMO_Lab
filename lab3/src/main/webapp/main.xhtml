@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+>
+<h:outputStylesheet library="css" name="stylesMain.css"/>
+<h:outputScript library="js" name="graph.js" target="body"/>
+<h:outputScript library="js" name="validation.js" target="body"/>
+<ui:composition template="templates/header.xhtml">
+    <ui:define name="script">
+        <h:outputScript library="js" name="graph.js" target="body"/>
+        <h:outputScript library="js" name="validation.js" target="body"/>
+    </ui:define>
+    <ui:define name="link">
+        <h:link value="Start page" outcome="index"/>
+    </ui:define>
+    <ui:define name="content">
+        <div class="background">
+            <div class="inputFields">
+
+                <div class="task">
+                    <div class="headerText">
+                        Введите данные на проверку вхождения в область значений данного графика:
+                    </div>
+                </div>
+
+                <h:form id="form">
+                <!-- X field-->
+                <div class="xRect">
+                    <h:outputLabel for="x">X: </h:outputLabel>
+                    <div class="slider">
+                        <h:inputHidden id="x" value="#{point.x}" pt:placeholder="1"/>
+                        <p><h:outputText id="x-display" value="0" /></p>
+                        <p:slider for="x" id="xSlider" display="x-display" minValue="-2" maxValue="2" step="0.5">
+                        </p:slider>
+                    </div>
+                    <p><h:message id="x-warning" styleClass="warning" for="x"/></p>
+                </div>
+
+
+                <!-- Y field-->
+                <div class="yRect">
+                    <h:outputLabel value="Y:"/>
+                    <h:inputText id="y" value="#{point.y}" pt:placeholder="0" maxlength="10" validatorMessage="Y should be a float from -3 to 5">
+                        <f:validateRequired/>
+                        <f:validateDoubleRange minimum="-3" maximum="5"/>
+                        <f:ajax event="keyup" render="y-warning" execute="y"/>
+                    </h:inputText>
+                    <p><h:message id="y-warning" styleClass="warning" for="y"/></p>
+                </div>
+
+                <!-- R field-->
+                <div class="rRect">
+                    <h:outputLabel value="R:"/>
+                    <h:inputText id="r" value="#{point.r}" pt:placeholder="0" maxlength="10" validatorMessage="r should be a float from 2 to 5">
+                        <f:validateRequired/>
+                        <f:validateDoubleRange minimum="2" maximum="5"/>
+                        <f:ajax event="keyup"  render="r-warning" execute="r" onevent="redrawGraph"/>
+                    </h:inputText>
+                    <p><h:message id="r-warning" styleClass="warning" for="r"/></p>
+                </div>
+
+                    <!-- Submit button-->
+                <div class="submit" >
+                    <h:commandButton id="submit" action="#{point.submit()}" value="Submit">
+                        <f:ajax execute="form" render="table" onevent="drawPoints"/>
+                    </h:commandButton>
+                </div>
+            </h:form>
+
+
+                <div class="table">
+                    <h:panelGroup id="table">
+                        <h:dataTable styleClass="data-table" value="#{dbManager.results}" var="r">
+                            <h:column headerClass="coords-column">
+                                <f:facet name="header">X</f:facet>
+                                <h:outputText value="#{r.x}"/>
+                            </h:column>
+                            <h:column headerClass="coords-column">
+                                <f:facet name="header">Y</f:facet>
+                                <h:outputText value="#{r.y}"/>
+                            </h:column>
+                            <h:column headerClass="coords-column">
+                                <f:facet name="header">R</f:facet>
+                                <h:outputText value="#{r.r}"/>
+                            </h:column>
+                            <h:column headerClass="time-column">
+                                <f:facet name="header">Current time</f:facet>
+                                <h:outputText value="#{r.currentTime}"/>
+                            </h:column>
+                            <h:column headerClass="time-column">
+                                <f:facet name="header">Execution time</f:facet>
+                                <h:outputText value="#{r.executionTime}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Hit fact</f:facet>
+                                <h:outputText value="#{r.hitFact}"/>
+                            </h:column>
+                        </h:dataTable>
+                    </h:panelGroup>
+                </div>
+
+
+                <div class="imageRect">
+                    <canvas id="graph" class="graph" width="400" height="400">
+
+                    </canvas>
+                </div>
+
+            </div>
+            <a href="https://github.com/svytoq" id="illuminated" title="Перейти к профилю Github разработчика" style="position:relative;left:10px;bottom:0px;z-index:1000;">Svytoq</a>
+            <br></br>
+            <h:link value="Start page" outcome="start"/>
+        </div>
+
+    </ui:define>
+</ui:composition>
+
+</html>
